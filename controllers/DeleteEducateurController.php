@@ -28,6 +28,7 @@ class DeleteEducateurController{
         include('../views/delete_educateur.php');
     }
 }
+require_once("../views/check_Edu.php");
 require_once("../classes/models/Connexion.php");
 require_once("../classes/models/LicencieModel.php");
 require_once("../classes/models/EducateurModel.php");

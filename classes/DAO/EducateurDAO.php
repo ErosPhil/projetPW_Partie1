@@ -101,5 +101,21 @@ class EducateurDAO{
             return false;
         }
     }
+
+    public function getByEmail($email) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("SELECT e.id, e.email, e.mot_de_passe, e.is_admin, e.id_licence FROM educateur e WHERE email = ?");
+            $stmt->execute([$email]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                return new EducateurModel($row['id'], $row['email'], $row['mot_de_passe'], $row['is_admin'], $row['id_licence']);
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
 }
 ?>

@@ -13,6 +13,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="HomeController.php">Club de sport</a>
+                <?php if(isset($_SESSION['userId'])){ ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="LesCategoriesController.php">Catégories</a>
@@ -31,6 +32,7 @@
                         <a class="nav-link" href="LesEducateursController.php">Éducateurs</a>
                     </li>
                 </ul>
+                <?php } ?>
             </div>
         </nav>
     </body>

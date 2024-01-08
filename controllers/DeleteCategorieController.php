@@ -26,6 +26,7 @@ class DeleteCategorieController{
         include('../views/delete_categorie.php');
     }
 }
+require_once("../views/check_Edu.php");
 require_once("../classes/models/Connexion.php");
 require_once("../classes/models/CategorieModel.php");
 require_once("../classes/dao/CategorieDAO.php");

@@ -14,7 +14,7 @@ class ViewContactController {
         include('../views/view_contact.php');
     }
 }
-
+require_once("../views/check_Edu.php");
 require_once("../classes/models/Connexion.php");
 require_once("../classes/models/ContactModel.php");
 require_once("../classes/dao/ContactDAO.php");
