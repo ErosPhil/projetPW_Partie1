@@ -20,17 +20,22 @@ class HomeController{
             $educateur = $this->educateurDAO->getByEmail($email);
 
             if($educateur != null){
-                if($educateur->getMot_de_passe() == $mdp){
-                    $_SESSION['userId'] = $educateur->getId();
-                    $_SESSION['name'] = $educateur->getEmail();
+                if($educateur->getIs_Admin() == 1){
+                    
+                    if($educateur->getMot_de_passe() == $mdp){
+                        $_SESSION['userId'] = $educateur->getId();
+                        $_SESSION['name'] = $educateur->getEmail();
+                    }else{
+                        echo 'Erreur lors de la connexion : mot de passe incorrect';
+                    }
                 }else{
-                    echo 'Erreur lors de la connexion : mot de passe incorrect';
+                    echo 'Erreur : vous n\'avez pas les autorisations requises';
                 }
             }else{
                 echo 'Erreur lors de la connexion : adresse mail non connue';
             }
         }
-        header("Location:HomeController.php");
+        $this->index();
     }
 
     public function seDeconnecter(){
